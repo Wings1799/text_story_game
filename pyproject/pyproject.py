@@ -1,4 +1,5 @@
 def main():
+    items = ['phone', 'ID']
     print("Welcome to the Interactive Story!\nIn this game you will be confronted with choices, and the choices you make will decide the outcome of your story.\nTo continue, please enter your name.")
     name = input('Name here: ')
     print("\nHello ", name, ". It seems you have wandered into a busy city, similar to New York. How do you figure out where you are?\nDo you: \nA. Ask the nearest person?\nB. Take out your phone?\nC. Try to use your surroundings?")
