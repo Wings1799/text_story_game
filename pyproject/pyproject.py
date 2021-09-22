@@ -33,8 +33,13 @@ def choice2():
         print("INVALID ANSWER. PLEASE TRY AGAIN")
         choice2()
 
+def phone_choice():
+    print("\nYou take out your phone and check the screen. 'No Service' it reads.\nWhat do you do?\nA. Ask the nearest person?\nC. Try to use your surroundings?")
+    choice1()
+
 def phone2_choice():
-    pass
+    print("\nYou take out your phone and check the screen. 'No Service' it reads.\nWhat do you do?\nB. Try to rush after the man?\nC. Begin to explore the city?")
+    choice2()
 
 def man_choice():
     pass
@@ -42,9 +47,21 @@ def man_choice():
 def explore_choice():
     pass
 
-def phone_choice():
-    pass
 def srdgs_choice():
+    print("\nYou look around your immediate area and find many small shops inside large skyscrapers. There are food vendors on the sidewalk, and many people bustling around. \nYour immediate thought is that you are in fact in New york, but the absence of famous landmarks of that city tell you otherwise. \nWhile you're glancing around like a true tourist, a young college-aged woman seems to be laughing at you from a bench across the street. \nWhat do you decide to do?\nA. Approach the woman?\nB. Ignore the woman and begin to explore the city?")
+    choice3()
+
+def choice3():
+    mychoice3 = input("Enter choice here: ")
+    if mychoice3.capitalize() == 'A':
+        approach_choice()
+    elif mychoice3.capitalize() == 'B':
+        explore_choice()
+    else:
+        print("INVALID ANSWER. PLEASE TRY AGAIN")
+        choice3()
+
+def approach_choice():
     pass
 
 main()
