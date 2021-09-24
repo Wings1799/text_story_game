@@ -1,46 +1,60 @@
-from Graph import *
-
 class Graph:
     """A simple graph representation allowing node and edge attributes."""
-
-    class Node:
-        pass
-
+    is_directed = ...
+    adj_list = {}
     nodes = {}
 
-    class Neighbor:
-        pass
+    def __init__(self, graph):
+        self.strung = graph
+        self.graph = graph.split('\n')
+        for i in self.graph:
+            j = i.split()
+            if len(j)==2:
+                if j[1]=='true':
+                    self.is_directed = True
+                else:
+                    self.is_directed = False
+            if len(j)==5:
+                n = Graph.Node(j[0],j[2],j[4])
+                self.nodes[j[0]]=n
+            if len(j)==3:
+                ne = Graph.Neighbor(j[0], j[2])
+                self.adj_list[j[0]]=ne
 
-    adj_list = {}
+    def num_edges(self):
+        return len(self.adj_list)
 
-    def __init__(self, myfile):
-        self.myfile = myfile
+    def has_edge(self, n1, n2):
+        point = n1+n2
+        for i in self.adj_list:
+            if i == point:
+                return True
+            else:
+                return False
+
+    def clear_edges(self):
+        self.adj_list.clear()
 
     def __str__(self):
-        print(self.myfile)
+        return self.strung
+
+    def explore(self, graph, node, status):
+        pass
+
+    def DFS(self, grph, pnt):
+        pass
+    
+    class Node:
+        def __init__(self, name, x, y):
+            self.name = name
+            self.x = x
+            self.y = y
+
+    class Neighbor:
+        def __init__(self, name, value):
+            self.name = name
+            self.value = value
 
 def parse_graph(graph):
-    graph.split('\n')
-
-    for i in graph:
-        if len(i) == 2:
-            if i[1] == ('true').capitalize:
-                g = Graph(graph)
-                g.is_directed = True
-            else:
-                g = Graph(graph)
-                g.is_directed = False
-        elif len(i) == 5:
-            i.split(' ', 1)
-            nodes[i][0]=i[1]
-        else:
-            i.split(i[0])
-            nodes[i][0]=i[1]
-
-
-    return graph
-
-
-s = open("input_graph").read()
-g = parse_graph(s)
-print(g)
+    g = Graph(graph)
+    return g
