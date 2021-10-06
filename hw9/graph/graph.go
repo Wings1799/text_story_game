@@ -1,7 +1,6 @@
 package graph
 
 import (
-	"os"
 	"strconv"
 	"strings"
 )
@@ -27,70 +26,79 @@ type Attr struct {
 	val  int
 }
 
-func (g *Graph) init(file string) {
-	f, _ := os.ReadFile(file)
-	f1 := string(f)
-	var A, B []Attr
-	var src, trgt *Node
-	var E []edge
+func New(s string) *Graph {
+	var lines = strings.Split(s, "\n")
+	var g Graph
 	g.IsDirected = true
-	lines := strings.Split(f1, "\n")
 	for _, v := range lines {
 		words := strings.Split(v, " ")
-		if len(words) == 2 {
-			if words[1] == "true" {
+		if len(words) == 4 {
+			if words[3] == "true" {
 				g.IsDirected = true
-			} else {
-				g.IsDirected = false
 			}
 		} else if len(words) == 5 {
-			av, _ := strconv.Atoi(words[2])
-			a := Attr{name: words[1], val: av}
-			A = append(A, a)
-			bv, _ := strconv.Atoi(words[4])
-			b := Attr{name: words[3], val: bv}
-			A = append(A, b)
-			n := Node{ID: words[0], attrs: A}
+			var e []edge
+			x, _ := strconv.Atoi(words[2])
+			a1 := Attr{words[1], x}
+			y, _ := strconv.Atoi(words[4])
+			a2 := Attr{words[3], y}
+			n := Node{words[0], []Attr{a1, a2}, e}
 			g.nodes = append(g.nodes, n)
 		} else if len(words) == 3 {
-			av, _ := strconv.Atoi(words[2])
-			a := Attr{name: words[0], val: av}
-			B = append(B, a)
-			letter := strings.Split(words[0], "")
-			for _, val := range g.nodes {
-				if val.ID == letter[0] {
-					src = &val
-				} else if val.ID == letter[1] {
-					trgt = &val
-				}
-			}
-			e := edge{attrs: B, Source: src, Target: trgt}
-			for _, nds := range g.nodes {
-				if e.Source.ID == nds.ID {
-					E = append(E, e)
-					nds.Incident = E
+			for np, n := range g.nodes {
+				if n.ID == string(words[0][0]) {
+					for mp, m := range g.nodes {
+						if m.ID == string(words[0][1]) {
+							e1, _ := strconv.Atoi(words[2])
+							ege := edge{[]Attr{{words[0], e1}}, &g.nodes[np], &g.nodes[mp]}
+							g.nodes[np].Incident = append(g.nodes[np].Incident, ege)
+						}
+					}
+
 				}
 			}
 		}
 	}
-}
-func (g Graph) NumEdges() int {
-	return len(g.nodes)
+	return &g
 }
 
-func (g Graph) HasEdge(a string, b string) bool {
-	var tmp bool
-	name := a + b
-	for _, v := range g.nodes {
-		for _, v1 := range v.Incident {
-			for _, v2 := range v1.attrs {
-				if v2.name == name {
-					tmp = true
-				} else {
-					tmp = false
-				}
+func (g Graph) NumEdges() int {
+	var count int
+	for _, node := range g.nodes {
+		count = +len(node.Incident)
+	}
+	return count
+}
+
+func (g Graph) HasEdge(n1, n2 string) bool {
+	tmp := false
+	for _, node := range g.nodes {
+		for _, name := range node.Incident {
+			if name.Source.ID == n1 && name.Target.ID == n2 {
+				tmp = true
 			}
 		}
 	}
 	return tmp
+}
+
+func (g Graph) String() []string {
+	var s []string
+	if g.IsDirected == true {
+		s = append(s, "directed true")
+	} else {
+		s = append(s, "directed false")
+	}
+
+	for _, node := range g.nodes {
+		for _, attr := range node.attrs {
+			s = append(s, attr.name, string(rune(attr.val)))
+		}
+		for _, edge := range node.Incident {
+			for _, attr := range edge.attrs {
+				s = append(s, attr.name, "value", string(rune(attr.val)))
+			}
+		}
+	}
+	return s
 }
