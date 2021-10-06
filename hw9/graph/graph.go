@@ -101,3 +101,9 @@ func (g Graph) String() []string {
 	}
 	return s
 }
+
+func (g *Graph) ClearEdges() {
+	for cnt1 := 0; cnt1 < len(g.nodes); cnt1++ {
+		g.nodes[cnt1].Incident = nil
+	}
+}
