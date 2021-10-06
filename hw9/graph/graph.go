@@ -29,7 +29,6 @@ type Attr struct {
 func New(s string) *Graph {
 	var lines = strings.Split(s, "\n")
 	var g Graph
-	g.IsDirected = true
 	for _, v := range lines {
 		words := strings.Split(v, " ")
 		if len(words) == 4 {
