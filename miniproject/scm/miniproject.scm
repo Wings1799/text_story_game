@@ -24,6 +24,8 @@
     (lambda()
         (display "Enter choice here: ")
         (define choice (read-line))
+
+        #USE cond()
         (if (equal? (string-upcase choice) "A")((stranger_choice))
         (if (equal? (string-upcase choice) "B")((phone_choice))
         (if (equal? (string-upcase choice) "C")((srdgs_choice))
