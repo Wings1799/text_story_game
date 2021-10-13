@@ -17,7 +17,16 @@
     similar to New York. How do you figure out where you are? Do you:
     A. Ask the nearest person?
     B. Take out your phone?
-    C. Try to use your surroundings?")
+    C. Try to use your surroundings?\n")
         #(choice1)))
+
+(define choice1
+    (lambda()
+        (display "Enter choice here: ")
+        (define choice (read-line))
+        (if (equal? (string-upcase choice) "A")((stranger_choice))
+        (if (equal? (string-upcase choice) "B")((phone_choice))
+        (if (equal? (string-upcase choice) "C")((srdgs_choice))
+        ((display "INVALID ANSWER. PLEASE TRY AGAIN")(choice1)))))))
 
 (main)
