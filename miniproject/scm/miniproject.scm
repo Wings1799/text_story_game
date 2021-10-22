@@ -7,8 +7,9 @@
     (lambda()
         (display "  Welcome to the Interactive Story!
     In this game you will be confronted with choices, and the choices you make
-    will decide the outcome of your story.
-    To continue, please enter your name.\n")
+    will decide the outcome of your story. 
+    To continue, please enter your name.
+    (You can type 'items' to view current items.)\n")
         (display "Enter name here: ")
         (define name (read-line))
         (display "\n  Hello ") 
@@ -17,7 +18,8 @@
 similar to New York. How do you figure out where you are? Do you:
     A. Ask the nearest person?
     B. Take out your phone?
-    C. Try to use your surroundings?\n")
+    C. Try to use your surroundings?
+    (You can type 'items' to view current items.)\n")
         (choice1)))
 
 (define choice1
@@ -28,6 +30,7 @@ similar to New York. How do you figure out where you are? Do you:
             [(equal? (string-upcase choice) "A") (stranger_choice)]
             [(equal? (string-upcase choice) "B")(phone_choice)]
             [(equal? (string-upcase choice) "C")(srdgs_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice1))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice1))])))
 
 (define stranger_choice
@@ -41,7 +44,8 @@ resumes his hurried pace down the busy street. Knowing this information,
 do you:
     A. Check your phone?
     B. Try to rush after the man?
-    C. Begin to explore the city?\n")
+    C. Begin to explore the city?
+    (You can type 'items' to view current items.)\n")
     (choice2)))
 
 (define choice2
@@ -52,6 +56,7 @@ do you:
             [(equal? (string-upcase choice) "A") (phone2_choice)]
             [(equal? (string-upcase choice) "B")(man_choice)]
             [(equal? (string-upcase choice) "C")(explore_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice2))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice2))])))
 
 (define phone_choice
@@ -59,7 +64,8 @@ do you:
         (display "\n  You take out your phone and check the screen.
 'No Service' it reads. What do you do?
     A. Ask the nearest person?
-    C. Try to use your surroundings?\n")
+    C. Try to use your surroundings?
+    (You can type 'items' to view current items.)\n")
         (choice1)))
 
 (define phone2_choice
@@ -67,7 +73,8 @@ do you:
         (display "\n  You take out your phone and check the screen.
 'No Service' it reads. What do you do?
     B. Try to rush after the man?
-    C. Begin to explore the city?\n")
+    C. Begin to explore the city?
+    (You can type 'items' to view current items.)\n")
         (choice2)))
 
 (define man_choice
@@ -76,7 +83,8 @@ do you:
 your way as they try to enter the bus that just stopped. Giving up on 
 catching the man, what is your next move?
     A. Explore the city?
-    B. Try to get on the bus?\n")
+    B. Try to get on the bus?
+    (You can type 'items' to view current items.)\n")
         (choice4)))
 
 (define choice4
@@ -86,15 +94,16 @@ catching the man, what is your next move?
         (cond
             [(equal? (string-upcase choice) "A") (explore_choice)]
             [(equal? (string-upcase choice) "B")(bus_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice4))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice4))])))
 
 (define explore_choice
     (lambda()
         (cond
             [(memq "knowledge" items) (begin (display "\n  You begin to explore 'The Ground', taking in as much 
-information as you can.")(end3b))]
+information as you can. (You can type 'items' to view current items.)")(end3b))]
             [else (begin (display "\n  You begin to explore the unknown city, taking in as much 
-information as you can.")(end3a))])))
+information as you can. (You can type 'items' to view current items.)")(end3a))])))
 
 (define bus_choice
     (lambda()
@@ -103,7 +112,8 @@ you can take more than 1 step up the stairs. 'Where's your ticket?' he
 asks. You don't have a ticket, but you ask if you can ride anyways and pay 
 a different way. Do you:
     A. Try to bribe the driver with an item?
-    B. Pay the driver for a ticket?\n")
+    B. Pay the driver for a ticket?
+    (You can type 'items' to view current items.)\n")
         (choice6)))
 
 (define choice6
@@ -113,6 +123,7 @@ a different way. Do you:
         (cond
             [(equal? (string-upcase choice) "A") (bribe_choice)]
             [(equal? (string-upcase choice) "B")(pay_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice6))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice6))])))
 
 (define bribe_choice
@@ -120,16 +131,18 @@ a different way. Do you:
         (cond 
             [(memq "image" items) (begin (display "\n  You give the image you found earlier to the bus driver. 
 He begins to cry and explains the story of how he's related to the 
-woman, but she passed away many years ago. It was his wife, and 
+woman, but she passed away many years ago. It was his wife, and  
 she haunts the streets of 'The Ground'. You were very lucky to 
 have seen the woman as she only appears to those who have the 
 potential to bring happiness to the world. You hug the driver, 
-and he allows you onto the bus to ride until you want to get off.\n")(end1))]
+and he allows you onto the bus to ride until you want to get off.
+(You can type 'items' to view current items.)\n")(end1))]
             [else (begin (display "\n  You try to use your phone to bribe the bus driver, and 
 he promptly kicks you off the bus and tells you to come back 
 with a ticket. Do you:
     A. Pay the driver?
-    B. Give up and explore the city?\n")(choice9))])))
+    B. Give up and explore the city?
+    (You can type 'items' to view current items.)\n")(choice9))])))
 
 (define choice9
     (lambda()
@@ -138,13 +151,15 @@ with a ticket. Do you:
         (cond
             [(equal? (string-upcase choice) "A") (pay_choice)]
             [(equal? (string-upcase choice) "B")(explore_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice9))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice9))])))
 
 (define pay_choice
     (lambda()
         (display "\n  You try to pay the bus driver for a ticket, but he says that 
 tickets can not be purchased on the bus. Dejectedly, you get off and 
-try to find another way to get around town.\n")
+try to find another way to get around town.
+(You can type 'items' to view current items.)\n")
         (end2)))
 
 (define srdgs_choice
@@ -157,7 +172,8 @@ tell you otherwise. While you're glancing around like a true tourist,
 a young college-aged woman seems to be laughing at you from a bench 
 across the street. What do you decide to do?
     A. Approach the woman?
-    B. Ignore the woman and begin to explore the city?\n")
+    B. Ignore the woman and begin to explore the city?
+    (You can type 'items' to view current items.)\n")
             (choice3))))
 
 (define choice3
@@ -167,6 +183,7 @@ across the street. What do you decide to do?
             (cond
                 [(equal? (string-upcase choice) "A") (approach_choice)]
                 [(equal? (string-upcase choice) "B")(explore_choice)]
+                [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice3))]
                 [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice3))])))
 
 (define approach_choice
@@ -180,7 +197,8 @@ can't hold eye contact that long so you look to your left to avoid her
 gaze. When you look back up, she's gone. Where she was sitting is now a 
 photograph depicting two birds sitting on a branch. What do you do now?
     A. Examine the photo again?
-    B. Ask someone around you?\n")
+    B. Ask someone around you?
+    (You can type 'items' to view current items.)\n")
         (choice5)))
 
 (define choice5
@@ -190,6 +208,7 @@ photograph depicting two birds sitting on a branch. What do you do now?
         (cond
             [(equal? (string-upcase choice) "A") (photo_choice)]
             [(equal? (string-upcase choice) "B")(around_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice5))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice5))])))
 
 (define photo_choice
@@ -197,7 +216,8 @@ photograph depicting two birds sitting on a branch. What do you do now?
         (display "\n  You examine the photo of the birds on the branch. On the back 
 of the photo is a sketch of a bus, which draws your curiosity. Do you:
     A. Search for a bus stop?
-    B. Look around you for where the picture could've been taken?\n")
+    B. Look around you for where the picture could've been taken?
+    (You can type 'items' to view current items.)\n")
         (choice7)))
 
 (define choice7
@@ -207,12 +227,14 @@ of the photo is a sketch of a bus, which draws your curiosity. Do you:
         (cond
             [(equal? (string-upcase choice) "A") (bus_choice)]
             [(equal? (string-upcase choice) "B")(around_choice)]
+            [(equal? (string-upcase choice) "ITEMS")(begin (display items)(display "\n")(choice7))]
             [else (begin (display "INVALID ANSWER. PLEASE TRY AGAIN\n")(choice7))])))
 
 (define around_choice
     (lambda()
         (display "\n  You look around to try and find a tree where the birds from 
-the picture could have been sitting.\n")
+the picture could have been sitting.
+(You can type 'items' to view current items.)\n")
         (end4)))
 
 (define end1
