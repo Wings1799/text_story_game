@@ -101,9 +101,9 @@ catching the man, what is your next move?
     (lambda()
         (cond
             [(memq "knowledge" items) (begin (display "\n  You begin to explore 'The Ground', taking in as much 
-information as you can. (You can type 'items' to view current items.)")(end3b))]
+information as you can.")(end3b))]
             [else (begin (display "\n  You begin to explore the unknown city, taking in as much 
-information as you can. (You can type 'items' to view current items.)")(end3a))])))
+information as you can.")(end3a))])))
 
 (define bus_choice
     (lambda()
@@ -135,8 +135,7 @@ woman, but she passed away many years ago. It was his wife, and
 she haunts the streets of 'The Ground'. You were very lucky to 
 have seen the woman as she only appears to those who have the 
 potential to bring happiness to the world. You hug the driver, 
-and he allows you onto the bus to ride until you want to get off.
-(You can type 'items' to view current items.)\n")(end1))]
+and he allows you onto the bus to ride until you want to get off.\n")(end1))]
             [else (begin (display "\n  You try to use your phone to bribe the bus driver, and 
 he promptly kicks you off the bus and tells you to come back 
 with a ticket. Do you:
@@ -158,8 +157,7 @@ with a ticket. Do you:
     (lambda()
         (display "\n  You try to pay the bus driver for a ticket, but he says that 
 tickets can not be purchased on the bus. Dejectedly, you get off and 
-try to find another way to get around town.
-(You can type 'items' to view current items.)\n")
+try to find another way to get around town.\n")
         (end2)))
 
 (define srdgs_choice
@@ -233,8 +231,7 @@ of the photo is a sketch of a bus, which draws your curiosity. Do you:
 (define around_choice
     (lambda()
         (display "\n  You look around to try and find a tree where the birds from 
-the picture could have been sitting.
-(You can type 'items' to view current items.)\n")
+the picture could have been sitting.\n")
         (end4)))
 
 (define end1
