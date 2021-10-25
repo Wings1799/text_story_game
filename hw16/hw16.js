@@ -7,3 +7,9 @@
 "hello/nworld!"
 
 "hello" + "world!"
+
+console.log("hello world!")
+
+console.log(false && false)
+
+console.log("my name is", null, "isnt that cool?")
