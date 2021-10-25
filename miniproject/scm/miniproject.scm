@@ -5,7 +5,7 @@
 
 (define main
     (lambda()
-        (display "  Welcome to the Interactive Story!
+        (display "\n  Welcome to the Interactive Story!
     In this game you will be confronted with choices, and the choices you make
     will decide the outcome of your story. 
     To continue, please enter your name.
