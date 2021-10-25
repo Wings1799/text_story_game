@@ -19,7 +19,7 @@ similar to New York. How do you figure out where you are? Do you:
     A. Ask the nearest person?
     B. Take out your phone?
     C. Try to use your surroundings?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice1)))
 
 (define choice1
@@ -45,7 +45,7 @@ do you:
     A. Check your phone?
     B. Try to rush after the man?
     C. Begin to explore the city?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
     (choice2)))
 
 (define choice2
@@ -65,7 +65,7 @@ do you:
 'No Service' it reads. What do you do?
     A. Ask the nearest person?
     C. Try to use your surroundings?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice1)))
 
 (define phone2_choice
@@ -74,7 +74,7 @@ do you:
 'No Service' it reads. What do you do?
     B. Try to rush after the man?
     C. Begin to explore the city?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice2)))
 
 (define man_choice
@@ -84,7 +84,7 @@ your way as they try to enter the bus that just stopped. Giving up on
 catching the man, what is your next move?
     A. Explore the city?
     B. Try to get on the bus?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice4)))
 
 (define choice4
@@ -113,7 +113,7 @@ asks. You don't have a ticket, but you ask if you can ride anyways and pay
 a different way. Do you:
     A. Try to bribe the driver with an item?
     B. Pay the driver for a ticket?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice6)))
 
 (define choice6
@@ -141,7 +141,7 @@ he promptly kicks you off the bus and tells you to come back
 with a ticket. Do you:
     A. Pay the driver?
     B. Give up and explore the city?
-    (You can type 'items' to view current items.)\n")(choice9))])))
+    (Type 'items' to view current items.)\n")(choice9))])))
 
 (define choice9
     (lambda()
@@ -171,7 +171,7 @@ a young college-aged woman seems to be laughing at you from a bench
 across the street. What do you decide to do?
     A. Approach the woman?
     B. Ignore the woman and begin to explore the city?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
             (choice3))))
 
 (define choice3
@@ -196,7 +196,7 @@ gaze. When you look back up, she's gone. Where she was sitting is now a
 photograph depicting two birds sitting on a branch. What do you do now?
     A. Examine the photo again?
     B. Ask someone around you?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice5)))
 
 (define choice5
@@ -215,7 +215,7 @@ photograph depicting two birds sitting on a branch. What do you do now?
 of the photo is a sketch of a bus, which draws your curiosity. Do you:
     A. Search for a bus stop?
     B. Look around you for where the picture could've been taken?
-    (You can type 'items' to view current items.)\n")
+    (Type 'items' to view current items.)\n")
         (choice7)))
 
 (define choice7
@@ -250,7 +250,7 @@ it can give you a ride somewhere. The man driving looks at you and
 tells you to get in. He then begins driving rapidly before you can 
 even tell him where you want to go. The man approaches a small shack,
 where he lets you out. 'This is your new home' the man says. Handcuffs
-appear on your wrists, and you're ushered into the basement. \nTHE END\n")))
+appear on your wrists, and you're ushered into the basement. \nTO BE CONTINUED\n")))
 
 (define end3a
     (lambda()
@@ -258,7 +258,7 @@ appear on your wrists, and you're ushered into the basement. \nTHE END\n")))
 the sign is a map, but not a regular map. This map is 3-dimensional, 
 and as you look at it, new places appear from the image you looked at.
 You now know all the basics about this place, and can begin to delve 
-deeper into what's going on. \nTHE END.\n")))
+deeper into what's going on. \nTO BE CONTINUED.\n")))
 
 (define end3b 
     (lambda()
@@ -266,13 +266,13 @@ deeper into what's going on. \nTHE END.\n")))
 it must be a library, you enter it. Immediately upon entering you are 
 grabbed and thrown to the ground by two men in suits wearing earpieces 
 and shades. 'This is restricted property. You're coming with us' said 
-one of the men as they dragged you down a long hallway. \nTHE END.\n")))
+one of the men as they dragged you down a long hallway. \nTO BE CONTINUED.\n")))
 
 (define end4
     (lambda()
         (display "\n  While you aren't paying attention, a Lamborghini Gallardo 
 comes screaming down the street. The car collides with you, and you 
 can finally see the tree where the birds were sitting. It's right 
-in front of you! You reach out and grab it. \nTHE END.\n")))
+in front of you! You reach out and grab it. You cease to exist. \nTHE END.\n")))
 
 (main)
