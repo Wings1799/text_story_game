@@ -1,10 +1,11 @@
 #!/usr/local/dept/bin/mzscheme
 #lang scheme/base
 
-(define items (list 'phone 'ID))
+(define items '())
 
 (define main
     (lambda()
+        (set! items (list 'phone 'ID ))
         (display "\n  Welcome to the Interactive Story!
     In this game you will be confronted with choices, and the choices you make
     will decide the outcome of your story. 
@@ -241,7 +242,7 @@ After many more hours you realize that you haven't moved at all,
 but rather you've been travelling through time while being in the same 
 position. You look outside and there is nothing there except wilderness.
 The bus you're on starts to disappear, and not long after that you 
-disappear as well. Into the void. \nTHE END.\n")))
+disappear as well. Into the void. \nTHE END.\n")(termin8)))
 
 (define end2
     (lambda()
@@ -250,7 +251,7 @@ it can give you a ride somewhere. The man driving looks at you and
 tells you to get in. He then begins driving rapidly before you can 
 even tell him where you want to go. The man approaches a small shack,
 where he lets you out. 'This is your new home' the man says. Handcuffs
-appear on your wrists, and you're ushered into the basement. \nTO BE CONTINUED\n")))
+appear on your wrists, and you're ushered into the basement. \nTO BE CONTINUED\n")(termin8)))
 
 (define end3a
     (lambda()
@@ -258,7 +259,7 @@ appear on your wrists, and you're ushered into the basement. \nTO BE CONTINUED\n
 the sign is a map, but not a regular map. This map is 3-dimensional, 
 and as you look at it, new places appear from the image you looked at.
 You now know all the basics about this place, and can begin to delve 
-deeper into what's going on. \nTO BE CONTINUED.\n")))
+deeper into what's going on. \nTO BE CONTINUED.\n")(termin8)))
 
 (define end3b 
     (lambda()
@@ -266,13 +267,19 @@ deeper into what's going on. \nTO BE CONTINUED.\n")))
 it must be a library, you enter it. Immediately upon entering you are 
 grabbed and thrown to the ground by two men in suits wearing earpieces 
 and shades. 'This is restricted property. You're coming with us' said 
-one of the men as they dragged you down a long hallway. \nTO BE CONTINUED.\n")))
+one of the men as they dragged you down a long hallway. \nTO BE CONTINUED.\n")(termin8)))
 
 (define end4
     (lambda()
         (display "\n  While you aren't paying attention, a Lamborghini Gallardo 
 comes screaming down the street. The car collides with you, and you 
 can finally see the tree where the birds were sitting. It's right 
-in front of you! You reach out and grab it. You cease to exist. \nTHE END.\n")))
+in front of you! You reach out and grab it. You cease to exist. \nTHE END.\n")(termin8)))
+
+(define termin8
+    (lambda ()
+        (display "Play again? (y or n)\n")
+        (define choice (read-line))
+        (if (equal? (string-upcase choice) "Y") (main) (display "Exited\n"))))
 
 (main)
