@@ -4,12 +4,12 @@
 using namespace std;
 
 list <int> * mylist;
-int main() {
+/*int main() {
     mylist->assign(2, 3);
     for (list<int>::iterator i = mylist->begin(); i != mylist->end(); i++) {
         cout << *i << " ";
     }
-}
+}*/
 
 //___________________________________________
 int car(vector<int> v) {
@@ -35,4 +35,13 @@ vector<int> cons(int e, vector<int> v) {
         k++;
     }
     return nvec;
+}
+
+int main() {
+    vector <int> * myvec;
+    myvec->insert(1, 0);
+    myvec->insert(2, 1);
+    cout << car(myvec) << "\n";
+    cdr(myvec);
+    cons(0, myvec);
 }
