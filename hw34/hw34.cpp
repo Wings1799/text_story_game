@@ -12,26 +12,26 @@ list <int> * mylist;
 }*/
 
 //___________________________________________
-int car(vector<int> v) {
+int car(vector<int> * v) {
     return v->begin();
 }
 
-vector<int> cdr(vector<int> v) {
+vector<int> cdr(vector<int> * v) {
     vector <int> * nvec;
     int k = 0;
     for (vector<int>::iterator i = advance(v->begin(),1); i != v->end(); i++) {
-        nvec->insert(i, k);
+        nvec->insert(k, 1, i);
         k++;
     }
     return nvec;
 }
 
-vector<int> cons(int e, vector<int> v) {
+vector<int> cons(int e, vector<int> * v) {
     vector <int> * nvec;
-    nvec->insert(e, 0);
+    nvec->insert(0, 1, e);
     int k = 1;
     for (vector<int>::iterator i = v->begin(); i != v->end(); i++) {
-        nvec->insert(i, k);
+        nvec->insert(k, 1, i);
         k++;
     }
     return nvec;
@@ -39,8 +39,8 @@ vector<int> cons(int e, vector<int> v) {
 
 int main() {
     vector <int> * myvec;
-    myvec->insert(1, 0);
-    myvec->insert(2, 1);
+    myvec->insert(0, 1, 1);
+    myvec->insert(1, 1, 2);
     cout << car(myvec) << "\n";
     cdr(myvec);
     cons(0, myvec);
